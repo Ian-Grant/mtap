@@ -1,4 +1,4 @@
-/* Copyright 2023 Ian A.N. Grant
+/* Copyright (c) Ian A.N. Grant
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the “Software”), to deal
@@ -81,6 +81,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       /usr/bin/mtap -vvvv -U /etc/net-tun-up 
 
 */
+
+#ifndef OPENBSD
+#define LINUX
+#endif
 
 #include <stdio.h>
 #include <stdlib.h>
