@@ -228,7 +228,7 @@ static int check_script_perms(const char *path) {
       fprintf(stderr, "the script %s is not owned by root or by the efective uid (%d).\n", path,euid);
         return -1;
     }
-    if (S_IWOTH & sb.st_mode != 0) {
+    if ((S_IWOTH & sb.st_mode) != 0) {
         fprintf(stderr, "the scipt %s is world-writable.\n", path);
         return -1;
     }
@@ -929,9 +929,12 @@ static void *mapbuf(void *addr,
 
 static int minbits(int n) {
    int i;
+
    for (i = 0x0; i < n; i++)
      if ((1 << i) >= n)
         return i;
+
+   return 0;
 }
 
 int main (int argc, char *argv[]) {
